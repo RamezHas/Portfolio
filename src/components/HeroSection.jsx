@@ -21,8 +21,10 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Software Engineering student at iTeam University (Tunisia), passionate about building intelligent, user-friendly applications.
-I focus on web, desktop, and mobile app development — currently exploring AI and database systems.
+            Software Engineering student at iTeam University, specializing in 
+AI/ML and full-stack development. I build intelligent applications 
+using Python, modern web frameworks, and machine learning—from 
+AI-powered educational platforms to computer vision systems.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

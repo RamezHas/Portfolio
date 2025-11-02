@@ -18,15 +18,44 @@ export const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
+  const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || "https://formspree.io/f/xzzkonnd";
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    (async () => {
+      try {
+        setIsSubmitting(true);
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+
+        if (res.ok) {
+          toast({
+            title: "Message sent!",
+            description: "Thank you for your message. I'll get back to you soon.",
+          });
+          form.reset();
+        } else {
+          const data = await res.json().catch(() => ({}));
+          toast({
+            title: "Submission failed",
+            description: data.error || "Something went wrong. Please try again.",
+          });
+        }
+      } catch (err) {
+        toast({
+          title: "Network error",
+          description: "Unable to send message. Please check your connection and try again.",
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
+    })();
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -55,7 +84,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Email</h4>
                   <a
-                    href="ramezhas933@gmail.com"
+                    href="mailto:ramezhas933@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     ramezhas933@gmail.com
@@ -106,13 +135,10 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"

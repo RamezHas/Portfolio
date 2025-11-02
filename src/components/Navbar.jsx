@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import RotatingText from "./RotatingText";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -34,9 +35,20 @@ export const Navbar = () => {
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-blue"> Ramez </span>{" "}
-            Portfolio
+          <span className="relative z-10 flex items-center gap-2">
+            <span>Ramez</span>
+            <RotatingText
+              texts={['Portfolio', 'Projects', 'Software Engineer']}
+              mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
           </span>
         </a>
 

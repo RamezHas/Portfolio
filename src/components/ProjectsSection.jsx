@@ -1,4 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
+import ElectricBorder from "./ElectricBorder";
 
 const projects = [
   {
@@ -48,15 +50,19 @@ export const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
+            <ElectricBorder
+  color="#7df9ff"
+  speed={1}
+  chaos={0.5}
+  thickness={5}
+  style={{ borderRadius: 0 }}
+>
+            <div key={key}>
+              <div className="h-48  ">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full pl-2 pt-2 pr-2"
                 />
               </div>
 
@@ -93,6 +99,7 @@ export const ProjectsSection = () => {
                 </div>
               </div>
             </div>
+            </ElectricBorder>
           ))}
         </div>
 
@@ -100,7 +107,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/RamezHas"
           >
             Check My Github <ArrowRight size={16} />
           </a>

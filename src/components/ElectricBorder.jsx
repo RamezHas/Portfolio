@@ -1,6 +1,20 @@
 import { useEffect, useId, useLayoutEffect, useRef } from 'react';
 
-import './ElectricBorder.css';
+function hexToRgba(hex, alpha = 1) {
+  if (!hex) return `rgba(0,0,0,${alpha})`;
+  let h = hex.replace('#', '');
+  if (h.length === 3) {
+    h = h
+      .split('')
+      .map(c => c + c)
+      .join('');
+  }
+  const int = parseInt(h, 16);
+  const r = (int >> 16) & 255;
+  const g = (int >> 8) & 255;
+  const b = int & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
 
 const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thickness = 2, className, style }) => {
   const rawId = useId().replace(/[:]/g, '');
@@ -57,9 +71,7 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
           try {
             a.beginElement();
           } catch {
-            console.warn(
-              'ElectricBorder: beginElement failed, this may be due to a browser limitation.'
-            );
+            console.warn('ElectricBorder: beginElement failed');
           }
         }
       });
@@ -80,17 +92,54 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const vars = {
-    ['--electric-border-color']: color,
-    ['--eb-border-width']: `${thickness}px`
+  const inheritRadius = {
+    borderRadius: style?.borderRadius ?? 'inherit'
+  };
+
+  const strokeStyle = {
+    ...inheritRadius,
+    borderWidth: thickness,
+    borderStyle: 'solid',
+    borderColor: color
+  };
+
+  const glow1Style = {
+    ...inheritRadius,
+    borderWidth: thickness,
+    borderStyle: 'solid',
+    borderColor: hexToRgba(color, 0.6),
+    filter: `blur(${0.5 + thickness * 0.25}px)`,
+    opacity: 0.5
+  };
+
+  const glow2Style = {
+    ...inheritRadius,
+    borderWidth: thickness,
+    borderStyle: 'solid',
+    borderColor: color,
+    filter: `blur(${2 + thickness * 0.5}px)`,
+    opacity: 0.5
+  };
+
+  const bgGlowStyle = {
+    ...inheritRadius,
+    transform: 'scale(1.08)',
+    filter: 'blur(32px)',
+    opacity: 0.3,
+    zIndex: -1,
+    background: `linear-gradient(-30deg, ${hexToRgba(color, 0.8)}, transparent, ${color})`
   };
 
   return (
     <div
       ref={rootRef}
-      className={`electric-border ${className ?? ''}`}
-      style={{ ...vars, ...style }}>
-      <svg ref={svgRef} className="eb-svg" aria-hidden focusable="false">
+      className={'relative isolate ' + (className ?? '')}
+      style={style}>
+      <svg
+        ref={svgRef}
+        className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"
+        aria-hidden
+        focusable="false">
         <defs>
           <filter
             id={filterId}
@@ -171,13 +220,18 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
           </filter>
         </defs>
       </svg>
-      <div className="eb-layers">
-        <div ref={strokeRef} className="eb-stroke" />
-        <div className="eb-glow-1" />
-        <div className="eb-glow-2" />
-        <div className="eb-background-glow" />
+      <div className="absolute inset-0 pointer-events-none" style={inheritRadius}>
+        <div
+          ref={strokeRef}
+          className="absolute inset-0 box-border"
+          style={strokeStyle} />
+        <div className="absolute inset-0 box-border" style={glow1Style} />
+        <div className="absolute inset-0 box-border" style={glow2Style} />
+        <div className="absolute inset-0" style={bgGlowStyle} />
       </div>
-      <div className="eb-content">{children}</div>
+      <div className="relative" style={inheritRadius}>
+        {children}
+      </div>
     </div>
   );
 };

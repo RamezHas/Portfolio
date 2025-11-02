@@ -5,32 +5,32 @@ import ElectricBorder from "./ElectricBorder";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
+    title: "FormaIA - AI Educational Platform",
+    description: "Intelligent platform that automatically generates structured educational content (courses, quizzes, presentations) using advanced NLP models. Built during Zaddem Consulting internship. ",
     image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
+    tags: ["Python", "Streamlit", "FastAPI","NLP"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/RamezHas/FormaIA",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Local AI Chatbot",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
+      "Interactive conversational AI with local LLM deployment. Features real-time streaming responses and customizable AI parameters.",
     image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+    tags: ["Python", "Streamlit", "LLM"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/RamezHas/chatbot",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Hand Tracking Project ",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+      "Collection of computer vision applications using hand tracking for touchless interaction including gesture-based drawing and system volume control.",
+    image: "",
+    tags: ["Python", "OpenCV", "MediaPipe"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/RamezHas/Hand-Tracking-Project",
   },
 ];
 

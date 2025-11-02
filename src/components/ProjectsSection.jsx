@@ -27,7 +27,7 @@ const projects = [
     title: "Hand Tracking Project ",
     description:
       "Collection of computer vision applications using hand tracking for touchless interaction including gesture-based drawing and system volume control.",
-    image: "",
+    image: "/projects/project3.png",
     tags: ["Python", "OpenCV", "MediaPipe"],
     demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/Hand-Tracking-Project",

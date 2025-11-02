@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "FormaIA - AI Educational Platform",
     description: "Intelligent platform that automatically generates structured educational content (courses, quizzes, presentations) using advanced NLP models. Built during Zaddem Consulting internship. ",
-    image: "projects/project1.png",
+    image: "/projects/project1.png",
     tags: ["Python", "Streamlit", "FastAPI","NLP"],
     demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/FormaIA",
@@ -17,7 +17,7 @@ const projects = [
     title: "Local AI Chatbot",
     description:
       "Interactive conversational AI with local LLM deployment. Features real-time streaming responses and customizable AI parameters.",
-    image: "projects/project2.png",
+    image: "/projects/project2.png",
     tags: ["Python", "Streamlit", "LLM"],
     demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/chatbot",
@@ -27,7 +27,7 @@ const projects = [
     title: "Hand Tracking Project ",
     description:
       "Collection of computer vision applications using hand tracking for touchless interaction including gesture-based drawing and system volume control.",
-    image: "projects/project3.png",
+    image: "/projects/project3.png",
     tags: ["Python", "OpenCV", "MediaPipe"],
     demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/Hand-Tracking-Project",

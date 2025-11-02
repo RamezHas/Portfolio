@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import RotatingText from "./RotatingText";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#hero" },
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export const Navbar = () => {
@@ -33,7 +33,12 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
+          href="/#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#hero');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
         >
           <span className="relative z-10 flex items-center gap-2">
             <span>Ramez</span>
@@ -58,7 +63,12 @@ export const Navbar = () => {
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(item.href.replace('/', ''));
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
             >
               {item.name}
             </a>
@@ -90,7 +100,12 @@ export const Navbar = () => {
                 key={key}
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href.replace('/', ''));
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
               >
                 {item.name}
               </a>

@@ -1,5 +1,6 @@
 import { Briefcase, Code, User } from "lucide-react";
 import {FaRobot,FaCode,FaEye} from "react-icons/fa"
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export const AboutSection = () => {
   return (
@@ -27,14 +28,15 @@ problems in Python, machine learning, and modern web technologies.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
+              <a href="#contact" className="cosmic-button" onClick={(e) => scrollToSection(e, '#contact')}>
                 {" "}
                 Get In Touch
               </a>
 
               <a
-                href=""
+                href={`${import.meta.env.BASE_URL}projects/cv26.pdf`}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+                download="Ramez_Hasnaoui_CV.pdf"
               >
                 Download CV
               </a>

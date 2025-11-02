@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export const HeroSection = () => {
   return (
@@ -28,7 +29,11 @@ AI-powered educational platforms to computer vision systems.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+            <a
+              href="/#projects"
+              className="cosmic-button"
+              onClick={(e) => scrollToSection(e, '#projects')}
+            >
               View My Work
             </a>
           </div>

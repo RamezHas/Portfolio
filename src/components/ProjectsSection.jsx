@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import SpotlightCard from "./SpotlightCard";
 import ElectricBorder from "./ElectricBorder";
 import { getImagePath } from "@/lib/imagePath";
 

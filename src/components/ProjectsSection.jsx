@@ -8,7 +8,7 @@ const projects = [
     title: "FormaIA - AI Educational Platform",
     description:
       "Intelligent platform that automatically generates structured educational content (courses, quizzes, presentations) using advanced NLP models. Built during Zaddem Consulting internship. ",
-    image: getImagePath("public/projects/project1.png"),
+    image: getImagePath("projects/project1.png"),
     tags: ["Python", "Streamlit", "FastAPI", "NLP"],
     demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/FormaIA",

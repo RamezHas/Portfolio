@@ -7,6 +7,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import Particles from '../components/Particles';
+import { ScrommToTopButton } from "../components/ScrollToTopButton";
 
 export const Home = () => {
   return (
@@ -25,6 +26,7 @@ export const Home = () => {
     alphaParticles={false}
     disableRotation={true}
   />
+  <ScrollToTopButton />
 </div>
 
       {/* Navbar */}

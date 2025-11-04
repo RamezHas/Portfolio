@@ -10,7 +10,6 @@ const projects = [
       "Intelligent platform that automatically generates structured educational content (courses, quizzes, presentations) using advanced NLP models. Built during Zaddem Consulting internship. ",
     image: getImagePath("projects/project1.png"),
     tags: ["Python", "Streamlit", "FastAPI", "NLP"],
-    demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/FormaIA",
   },
   {
@@ -20,7 +19,6 @@ const projects = [
       "Interactive conversational AI with local LLM deployment. Features real-time streaming responses and customizable AI parameters.",
     image: getImagePath("projects/project2.png"),
     tags: ["Python", "Streamlit", "LLM"],
-    demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/chatbot",
   },
   {
@@ -30,7 +28,6 @@ const projects = [
       "Collection of computer vision applications using hand tracking for touchless interaction including gesture-based drawing and system volume control.",
     image: getImagePath("projects/project3.png"),
     tags: ["Python", "OpenCV", "MediaPipe"],
-    demoUrl: "#",
     githubUrl: "https://github.com/RamezHas/Hand-Tracking-Project",
   },
 ]
@@ -87,14 +84,6 @@ export const ProjectsSection = () => {
                 <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                      rel="noreferrer"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
                     <a
                       href={project.githubUrl}
                       target="_blank"

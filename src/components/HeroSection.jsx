@@ -24,7 +24,7 @@ export const HeroSection = () => {
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
             Software Engineering student at iTeam University, specializing in 
 AI/ML and full-stack development. I build intelligent applications 
-using Python, modern web frameworks, and machine learning—from 
+using Python, modern web frameworks, and machine learning from 
 AI-powered educational platforms to computer vision systems.
           </p>
 

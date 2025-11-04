@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import RotatingText from "./RotatingText";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "/#hero" },
@@ -72,7 +73,9 @@ export const Navbar = () => {
             >
               {item.name}
             </a>
+            
           ))}
+          
         </div>
 
         {/* mobile nav */}
@@ -113,6 +116,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+      <ThemeToggle/>
     </nav>
   );
 };
